@@ -1,0 +1,21 @@
+--for six query operations
+
+1.select club_name, year_estabilished from badminton_club;
+
+
+2.select club_id,club_name,member_id,member_name from 
+badminton_club natural join member£»
+
+3.select bad.club_id,bad.club_name,mem.member_id,
+mem.member_name from badminton_club bad,
+ member mem where bad.club_id =mem.club_id;
+
+4.select club_id,club_name, count(member) 
+from badminton_club natural join member where club_id = 1 
+group by club_id, club_name;
+
+5.select member_id,member_name,club_id,member_fees from member 
+where member_fees <= all(select member_fees from member);
+
+6.select c.name as coach, m.name as coach_manager from coach c,
+coach m where m.coach_manager= c.coach_id and c.club_id=1;
